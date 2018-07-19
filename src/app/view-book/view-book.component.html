@@ -1,0 +1,94 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="linear-activity" *ngIf="!(isVisible)">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="isVisible">
+
+
+  <div class="row">
+    <div class="card col-md-12">
+      <div class="card-body text-center">
+        <h2 class="card-title" style="margin: 10px;font-weight: bold">Book Name : <i>{{currentBook['name'] ||
+          "N/A"}}</i></h2>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Author Name : <i>{{currentBook.authors[0] ||
+          "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Country Name : <i>{{currentBook.country ||
+          "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">ISBN : <i>{{currentBook.isbn || "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Number of pages :
+          <i>{{currentBook.numberOfPages || "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Publisher : <i>{{currentBook.publisher ||
+          "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Book Media Type : <i>{{currentBook.mediaType ||
+          "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Released : <i>{{currentBook.released || "N/A"}}</i>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <hr>
+
+
+  <div class="text-center">
+    <p>Authors</p>
+    <div class="text-center" class="col-md-12 ">
+      <div *ngFor="let author of currentBook.authors">
+        <div class="card" style="height:auto">
+          <div class="card-body text-center">
+            <p class="card-text">{{author}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="text-center">
+    <h3 style="font-weight: bold">Characters</h3>
+  </div>
+
+
+  <hr>
+
+  <div *ngIf="isVisible" class="row">
+    <div *ngFor="let char of characters" class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <div class="card card-holder-no-outline card-small"
+           [routerLink]="['/character',char.substr(char.lastIndexOf('/') + 1)]" style="min-height: auto">
+        <div class="card-body text-center">
+
+          <p class="card-text">Character {{char.substr(char.lastIndexOf('/') + 1) || "N/A"}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center">
+    <h3 style="font-weight: bold">POV Characters</h3>
+  </div>
+
+  <hr>
+
+  <div *ngIf="isVisible" class="row">
+    <div *ngFor="let povChar of povCharacters" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ">
+      <div class="card card-holder-no-outline card-small"
+           [routerLink]="['/character',povChar.substr(povChar.lastIndexOf('/') + 1)]"
+           style="min-height: auto">
+        <div class="card-body text-center">
+          <p class="card-text">Character {{povChar.substr(povChar.lastIndexOf('/') + 1) || "N/A"}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

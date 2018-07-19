@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="linear-activity" *ngIf="!(isVisible)">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+
+
+  <div class="row">
+    <div class="card col-md-12" *ngIf="isVisible">
+      <div class="card-body text-center">
+        <h2 class="card-title" style="margin: 10px;font-weight: bold">House Name : <i>{{currentHouse['name'] ||
+          "N/A"}}</i></h2>
+        <p class="card-title" style="margin: 10px;font-weight: bold">House Region : <i>{{currentHouse.region ||
+          "N/A"}}</i>
+        </p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">House Coat Of Arms :
+          <i>{{currentHouse.coatOfArms || "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">House Words : <i>{{currentHouse.words ||
+          "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">House Titles :
+          <i>{{allTitles || "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">House Seats :
+          <i>{{allSeats || "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">House Current Lord :
+          <i>{{currentLord || "N/A"}}</i></p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">House Heir : <i>{{heir|| "N/A"}}</i>
+        </p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">House Overlord : <i>{{overlord ||
+          "N/A"}}</i>
+        </p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Founded : <i>{{currentHouse.founded || "N/A"}}</i>
+        </p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Founder : <i>{{currentHouse.founder || "N/A"}}</i>
+        </p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Died Out : <i>{{currentHouse.diedOut || "N/A"}}</i>
+        </p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Founder : <i>{{currentHouse.founder || "N/A"}}</i>
+        </p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Ancestral Weapons : <i>{{allWeapons || "N/A"}}</i>
+        </p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Cadet Branches : <i>{{cadetBranches || "N/A"}}</i>
+        </p>
+        <p class="card-title" style="margin: 10px;font-weight: bold">Sworn Members : <i>{{swornMembers || "N/A"}}</i>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="container main-body-home">
+
+  <div class="row text-center bg-info header">
+    <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="color: #000000;font-weight: bold;font-size: 20px">Books</p>
+    <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="color: #000000;font-weight: bold;font-size: 20px">Houses</p>
+    <p class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="color: #000000;font-weight: bold;font-size: 20px">
+      Characters</p>
+  </div>
+
+
+  <div *ngIf="isVisible" class="text-center">
+    <div class="loading">
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div *ngIf="combined">
+      <div *ngFor="let com of combined">
+
+        <div *ngIf="com[0]" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div class="card-container">
+            <div class="card" style="background-color: #6200EA">
+
+              <div class="card-body text-center">
+
+                <p class="card-text">{{com[0].name || "N/A"}}</p>
+                <p class="card-text">{{com[0].authors[0] || "N/A"}}</p>
+                <div class="row bottom">
+                  <div class="col-md-12">
+                    <div class="btn btn-lg hidden-sm hidden-xs bg-warning"
+                         [routerLink]="['/book',combined.indexOf(com)+1]">Get Details
+                    </div>
+                    <div class="btn btn-xs hidden-md hidden-lg bg-warning"
+                         [routerLink]="['/book',combined.indexOf(com)+1]">Get Details
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!(com[0])" class="col-md-4">
+          <div class="card-container">
+
+          </div>
+        </div>
+
+
+        <div *ngIf="com[1]" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div class="card-container">
+            <div class="card" style="background-color: #DD2C00">
+
+              <div class="card-body text-center">
+
+                <p class="card-text">{{com[1].name || "N/A"}}</p>
+                <p class="card-text">{{com[1].region || "N/A"}}</p>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="btn btn-lg hidden-sm hidden-xs bg-warning"
+                         [routerLink]="['/house',combined.indexOf(com)+1]">Get Details
+                    </div>
+                    <div class="btn btn-xs hidden-md hidden-lg bg-warning"
+                         [routerLink]="['/house',combined.indexOf(com)+1]">Get Details
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="!(com[1])" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div class="card-container">
+
+          </div>
+        </div>
+
+        <div *ngIf="com[2]" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div class="card-container">
+            <div class="card" style="background-color: #64DD17">
+
+              <div class="card-body text-center">
+                <p class="card-text">{{com[2].name || "N/A"}}</p>
+                <p class="card-text">{{com[2].gender || "N/A"}}</p>
+                <div class="btn btn-lg hidden-sm hidden-xs bg-warning"
+                     [routerLink]="['/character',combined.indexOf(com)+1]">Get Details
+                </div>
+                <div class="btn btn-xs hidden-md hidden-lg bg-warning"
+                     [routerLink]="['/character',combined.indexOf(com)+1]">Get Details
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!(com[2])" class="col-md-4">
+          <div class="card-container">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
